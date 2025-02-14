@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dia dos Namorados</title>
+    <style>
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            text-align: center;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+        }
+        .contador {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="foto_nos.jpg" alt="Nós">
+        <div class="contador">
+            <h2>Tempo juntos:</h2>
+            <p id="contador"></p>
+        </div>
+    </div>
+
+    <script>
+        const inicioRelacionamento = new Date('2024-10-27T00:00:00'); 
+
+        function atualizarContador() {
+            const agora = new Date();
+            const tempoJuntos = agora - inicioRelacionamento;
+
+            const dias = Math.floor(tempoJuntos / (1000 * 60 * 60 * 24));
+            const horas = Math.floor((tempoJuntos % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutos = Math.floor((tempoJuntos % (1000 * 60 * 60)) / (1000 * 60));
+            const segundos = Math.floor((tempoJuntos % (1000 * 60)) / 1000);
+            
+            document.getElementById('contador').innerHTML = 
+                `${dias} dias, ${horas} horas <br> ${minutos} minutos e ${segundos} segundos<br>❤️🥑🐈`;
+        }
+
+        setInterval(atualizarContador, 1000);
+    </script>
+</body>
+</html>
