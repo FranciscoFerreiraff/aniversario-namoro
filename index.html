@@ -16,6 +16,7 @@
             margin: 0;
             text-align: center;
             flex-direction: column;
+            cursor: pointer; /* Indica que o usuário pode interagir */
         }
         img {
             width: 300px;
@@ -35,12 +36,11 @@
             <h2>Tempo juntos:</h2>
             <p id="contador"></p>
         </div>
-        
-        <!-- Música automática -->
-        <audio id="musica" autoplay loop>
-            <source src="d4dv.mp3" type="audio/mpeg">
-        </audio>
     </div>
+
+    <audio id="musica" loop>
+        <source src="d4dv.mp3" type="audio/mpeg">
+    </audio>
 
     <script>
         const inicioRelacionamento = new Date('2024-10-27T00:00:00'); 
@@ -60,13 +60,12 @@
 
         setInterval(atualizarContador, 1000);
 
-        // Força autoplay em navegadores que bloqueiam reprodução automática
-        document.addEventListener('DOMContentLoaded', () => {
+        // Reproduzir música ao clicar na página
+        document.body.addEventListener('click', () => {
             const musica = document.getElementById('musica');
-            musica.play().catch(() => {
-                console.log('Autoplay bloqueado pelo navegador.');
-            });
-        });
+            musica.play().catch(err => console.log("Autoplay bloqueado:", err));
+        }, { once: true }); // Executa só na primeira interação
+
     </script>
 </body>
 </html>
