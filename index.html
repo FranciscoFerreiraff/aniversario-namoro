@@ -15,6 +15,7 @@
             height: 100vh;
             margin: 0;
             text-align: center;
+            flex-direction: column;
         }
         img {
             width: 300px;
@@ -34,6 +35,11 @@
             <h2>Tempo juntos:</h2>
             <p id="contador"></p>
         </div>
+        
+        <!-- Música automática -->
+        <audio id="musica" autoplay loop>
+            <source src="/d4vd - Feel It (Official Music Video) - d4vdVEVO.mp3" type="audio/mpeg">
+        </audio>
     </div>
 
     <script>
@@ -53,6 +59,14 @@
         }
 
         setInterval(atualizarContador, 1000);
+
+        // Força autoplay em navegadores que bloqueiam reprodução automática
+        document.addEventListener('DOMContentLoaded', () => {
+            const musica = document.getElementById('musica');
+            musica.play().catch(() => {
+                console.log('Autoplay bloqueado pelo navegador.');
+            });
+        });
     </script>
 </body>
 </html>
