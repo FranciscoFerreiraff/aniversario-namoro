@@ -16,12 +16,12 @@
             margin: 0;
             text-align: center;
             flex-direction: column;
-            cursor: pointer; /* Indica que o usuário pode interagir */
         }
         img {
             width: 300px;
             border-radius: 10px;
             margin-bottom: 30px;
+            cursor: pointer; /* Indica que a imagem pode ser clicada */
         }
         .contador {
             font-size: 24px;
@@ -31,7 +31,7 @@
 </head>
 <body>
     <div>
-        <img src="foto_nos.jpg" alt="Nós">
+        <img id="foto" src="foto_nos.jpg" alt="Nós">
         <div class="contador">
             <h2>Tempo juntos:</h2>
             <p id="contador"></p>
@@ -60,7 +60,7 @@
 
         setInterval(atualizarContador, 1000);
 
-        // Reproduzir música ao clicar na página
+        // Reproduzir música ao clicar na imagem
         document.getElementById('foto').addEventListener('click', () => {
             const musica = document.getElementById('musica');
             musica.volume = 0.3; // Define o volume para 30%
