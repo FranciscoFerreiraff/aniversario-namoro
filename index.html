@@ -61,10 +61,11 @@
         setInterval(atualizarContador, 1000);
 
         // Reproduzir música ao clicar na página
-        document.body.addEventListener('click', () => {
+        document.getElementById('foto').addEventListener('click', () => {
             const musica = document.getElementById('musica');
+            musica.volume = 0.3; // Define o volume para 30%
             musica.play().catch(err => console.log("Autoplay bloqueado:", err));
-        }, { once: true }); // Executa só na primeira interação
+        }, { once: true });
 
     </script>
 </body>
